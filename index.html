@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="cobalt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khalid Ghazwani — Software Engineer & AI Specialist</title>
+  <meta name="description" content="Portfolio of Khalid Mohammed Ali Ghazwani. Computer Science (AI Track) graduate from Jazan University. Full-stack web architecture and applied deep learning.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans (Clean Modern Sans) + Syne (Headings) + JetBrains Mono (Tech/Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* THEME SYSTEM (CSS Variables for dynamic customization) */
+    :root, [data-theme="cobalt"] {
+      --bg-base: #080B11;
+      --bg-card: #0E131F;
+      --bg-card-subtle: #141B2D;
+      --bg-surface: #1A233A;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(59, 130, 246, 0.4);
+      --accent: #3B82F6;
+      --accent-hover: #2563EB;
+      --accent-light: #60A5FA;
+      --accent-glow: rgba(59, 130, 246, 0.22);
+      --accent-subtle: rgba(59, 130, 246, 0.1);
+      --secondary: #10B981;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --gradient-brand: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #2563EB 100%);
+    }
+
+    [data-theme="emerald"] {
+      --bg-base: #060F0C;
+      --bg-card: #0B1A15;
+      --bg-card-subtle: #10261F;
+      --bg-surface: #18382E;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(16, 185, 129, 0.4);
+      --accent: #10B981;
+      --accent-hover: #059669;
+      --accent-light: #34D399;
+      --accent-glow: rgba(16, 185, 129, 0.22);
+      --accent-subtle: rgba(16, 185, 129, 0.1);
+      --secondary: #3B82F6;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --gradient-brand: linear-gradient(135deg, #34D399 0%, #10B981 50%, #059669 100%);
+    }
+
+    [data-theme="indigo"] {
+      --bg-base: #090912;
+      --bg-card: #101020;
+      --bg-card-subtle: #17172E;
+      --bg-surface: #222244;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(99, 102, 241, 0.4);
+      --accent: #6366F1;
+      --accent-hover: #4F46E5;
+      --accent-light: #818CF8;
+      --accent-glow: rgba(99, 102, 241, 0.22);
+      --accent-subtle: rgba(99, 102, 241, 0.1);
+      --secondary: #06B6D4;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --gradient-brand: linear-gradient(135deg, #818CF8 0%, #6366F1 50%, #4F46E5 100%);
+    }
+
+    [data-theme="titanium"] {
+      --bg-base: #0A0B0D;
+      --bg-card: #121317;
+      --bg-card-subtle: #191B22;
+      --bg-surface: #242730;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.3);
+      --accent: #E2E8F0;
+      --accent-hover: #CBD5E1;
+      --accent-light: #FFFFFF;
+      --accent-glow: rgba(255, 255, 255, 0.15);
+      --accent-subtle: rgba(255, 255, 255, 0.08);
+      --secondary: #10B981;
+      --text-main: #FAFAFA;
+      --text-muted: #A1A1AA;
+      --gradient-brand: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #94A3B8 100%);
+    }
+
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--bg-surface);
+      border-radius: 9999px;
+      border: 1px solid var(--border-subtle);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    /* Card & Surface Classes */
+    .pro-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .pro-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 16px 36px -12px var(--accent-glow);
+      transform: translateY(-3px);
+    }
+
+    .pro-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+    }
+
+    .glass-nav {
+      background: rgba(8, 11, 17, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* Dynamic Button with Accent */
+    .btn-brand {
+      background: var(--accent);
+      color: #FFFFFF;
+      transition: all 0.25s ease;
+    }
+    .btn-brand:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 8px 24px -4px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    /* Text Gradient */
+    .text-brand-gradient {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Spotlight on Mouse Move */
+    .spotlight {
+      position: relative;
+      overflow: hidden;
+    }
+    .spotlight::before {
+      content: '';
+      position: absolute;
+      top: var(--mouse-y, -500px);
+      left: var(--mouse-x, -500px);
+      transform: translate(-50%, -50%);
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .spotlight:hover::before {
+      opacity: 1;
+    }
+
+    /* Subtle grid */
+    .grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 35s linear infinite;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased relative">
+
+  <!-- AMBIENT TOP LIGHT -->
+  <div class="fixed top-[-15%] left-[20%] w-[600px] h-[600px] rounded-full blur-[180px] pointer-events-none -z-10 opacity-40" style="background: var(--accent);"></div>
+  <div class="fixed top-[45%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[190px] pointer-events-none -z-10 opacity-20" style="background: var(--secondary);"></div>
+
+  <!-- FLOATING NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      
+      <!-- Brand & Monogram -->
+      <a href="#top" class="flex items-center gap-3 group py-2">
+        <div class="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center font-display font-bold text-sm text-white shadow-sm" style="background: var(--bg-card-subtle);">
+          <span>KG</span>
+        </div>
+        <div>
+          <div class="text-sm font-bold tracking-tight text-white flex items-center gap-2">
+            <span>Khalid Ghazwani</span>
+            <span class="w-2 h-2 rounded-full" style="background: var(--secondary);"></span>
+          </div>
+          <div class="text-[11px] font-mono text-gray-400">Software Engineer & AI Specialist</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-1 p-1 rounded-xl border border-white/5 text-xs font-mono" style="background: var(--bg-card-subtle);">
+        <a href="#about" class="px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">01 // About</a>
+        <a href="#skills" class="px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">02 // Stack</a>
+        <a href="#projects" class="px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">03 // Projects</a>
+        <a href="#interactive" class="px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">04 // Console</a>
+        <a href="#contact" class="px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">05 // Contact</a>
+      </nav>
+
+      <!-- Theme Switcher & Actions -->
+      <div class="flex items-center gap-2.5">
+        
+        <!-- Live Color Palette Switcher -->
+        <div class="flex items-center gap-1 p-1 rounded-xl border border-white/10" style="background: var(--bg-card-subtle);" title="Switch Color Theme">
+          <button class="theme-btn w-6 h-6 rounded-lg bg-blue-500 hover:scale-110 transition-transform" data-set-theme="cobalt" title="Cobalt Blue"></button>
+          <button class="theme-btn w-6 h-6 rounded-lg bg-emerald-500 hover:scale-110 transition-transform" data-set-theme="emerald" title="Emerald Mint"></button>
+          <button class="theme-btn w-6 h-6 rounded-lg bg-indigo-500 hover:scale-110 transition-transform" data-set-theme="indigo" title="Deep Indigo"></button>
+          <button class="theme-btn w-6 h-6 rounded-lg bg-slate-300 hover:scale-110 transition-transform" data-set-theme="titanium" title="Titanium Slate"></button>
+        </div>
+
+        <a href="mailto:alghzwanyk7@gmail.com" class="btn-brand px-3.5 py-1.5 rounded-xl text-xs font-semibold font-mono hidden sm:inline-flex items-center gap-1.5">
+          <span>Get in Touch</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-xl pro-pill text-gray-300 hover:text-white" aria-label="Toggle Menu">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="md:hidden hidden border-t border-white/5 px-6 py-4 space-y-2 font-mono text-xs" style="background: var(--bg-card);">
+      <a href="#about" class="block py-2 text-gray-300 hover:text-white mobile-link">01 // About & Focus</a>
+      <a href="#skills" class="block py-2 text-gray-300 hover:text-white mobile-link">02 // Technical Arsenal</a>
+      <a href="#projects" class="block py-2 text-gray-300 hover:text-white mobile-link">03 // Production Projects</a>
+      <a href="#interactive" class="block py-2 text-gray-300 hover:text-white mobile-link">04 // Developer Console</a>
+      <a href="#contact" class="block py-2 text-gray-300 hover:text-white mobile-link">05 // Direct Contact</a>
+    </div>
+  </header>
+
+  <main class="pt-24">
+
+    <!-- HERO SECTION -->
+    <section id="top" class="max-w-6xl mx-auto px-6 py-16 md:py-24 grid-pattern relative">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-7">
+          
+          <!-- Academic / Domain Badge -->
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full pro-pill text-xs font-mono text-gray-300">
+              <span class="w-2 h-2 rounded-full animate-ping" style="background: var(--accent);"></span>
+              <span class="text-white font-medium">Jazan University</span>
+              <span class="text-gray-500">/</span>
+              <span class="font-medium" style="color: var(--accent-light);">B.Sc. Computer Science (AI Track)</span>
+            </div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono" style="background: var(--accent-subtle); color: var(--accent-light); border: 1px solid var(--border-hover);">
+              <span class="w-1.5 h-1.5 rounded-full" style="background: var(--secondary);"></span>
+              Available for Roles
+            </div>
+          </div>
+
+          <!-- Headline -->
+          <div class="space-y-2">
+            <h1 class="font-display font-black text-5xl sm:text-6xl md:text-7xl tracking-tight leading-[0.95] text-white">
+              <span>Khalid</span><br>
+              <span class="text-brand-gradient">Ghazwani.</span>
+            </h1>
+            <div class="text-lg sm:text-xl font-semibold text-gray-200 pt-2 flex items-center gap-2">
+              <span class="font-mono text-sm" style="color: var(--accent);">></span>
+              <span>Software Engineer & Applied AI Specialist</span>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <p class="text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl">
+            Computer Science graduate specializing in <strong class="text-white font-semibold">production web architecture</strong> and <strong class="text-white font-semibold">applied deep learning</strong>. I engineer scalable full-stack applications in React and Laravel, real-time computer vision models (YOLOv8/PyTorch), and containerized microservices designed for real users.
+          </p>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2 font-mono text-xs">
+            <a href="#projects" class="btn-brand px-6 py-3.5 rounded-xl font-semibold flex items-center gap-2.5">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <span>Explore Live Systems</span>
+            </a>
+
+            <a href="#interactive" class="px-6 py-3.5 rounded-xl pro-pill hover:bg-white/10 text-white font-semibold flex items-center gap-2.5 transition-all">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>Developer Console</span>
+            </a>
+
+            <div class="flex items-center gap-2">
+              <a href="https://github.com/alghzwanik9" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl pro-pill hover:bg-white/10 text-gray-300 hover:text-white transition-colors" title="GitHub">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/khaled-ghzwani-25b261331" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl pro-pill hover:bg-white/10 text-gray-300 hover:text-white transition-colors" title="LinkedIn">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 text-center sm:text-left">
+            <div>
+              <div class="text-3xl font-display font-black text-white">100%</div>
+              <div class="text-[11px] font-mono text-gray-400 mt-0.5 uppercase tracking-wider">Production Rigor</div>
+            </div>
+            <div>
+              <div class="text-3xl font-display font-black" style="color: var(--accent);">3+</div>
+              <div class="text-[11px] font-mono text-gray-400 mt-0.5 uppercase tracking-wider">Live Deployments</div>
+            </div>
+            <div>
+              <div class="text-3xl font-display font-black text-emerald-400">2026</div>
+              <div class="text-[11px] font-mono text-gray-400 mt-0.5 uppercase tracking-wider">CS · AI Graduate</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Visual: Live Pipeline Telemetry Station -->
+        <div class="lg:col-span-5">
+          <div class="pro-card rounded-3xl p-6 sm:p-7 spotlight shadow-2xl relative">
+            
+            <!-- Window Bar -->
+            <div class="flex items-center justify-between pb-4 mb-5 border-b border-white/10">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                <span class="ml-2 text-xs font-mono text-gray-300">pipeline-telemetry.live</span>
+              </div>
+              <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                ACTIVE PIPELINE
+              </span>
+            </div>
+
+            <!-- Nodes -->
+            <div class="space-y-3.5">
+              
+              <div class="p-4 rounded-2xl border border-white/5 flex items-center justify-between" style="background: var(--bg-card-subtle);">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-xs" style="background: var(--accent-subtle); color: var(--accent-light); border: 1px solid var(--border-hover);">
+                    UI
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">Client Interface Layer</div>
+                    <div class="text-[10px] font-mono text-gray-400">React 19 · Vite · Tailwind · Framer</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded" style="background: var(--accent-subtle); color: var(--accent-light);">60 FPS</span>
+              </div>
+
+              <div class="flex items-center justify-center gap-2 py-0.5">
+                <span class="h-4 w-0.5" style="background: var(--accent);"></span>
+                <span class="text-[9px] font-mono text-gray-500 uppercase tracking-widest">REST / WebSockets (JSON)</span>
+                <span class="h-4 w-0.5" style="background: var(--accent);"></span>
+              </div>
+
+              <div class="p-4 rounded-2xl border border-white/5 flex items-center justify-between" style="background: var(--bg-card-subtle);">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-xs" style="background: var(--accent-subtle); color: var(--accent-light); border: 1px solid var(--border-hover);">
+                    API
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">Neural Inference Gateway</div>
+                    <div class="text-[10px] font-mono text-gray-400">Laravel 11 · Python API · YOLOv8</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded" style="background: var(--accent-subtle); color: var(--accent-light);">&lt; 18ms</span>
+              </div>
+
+              <div class="flex items-center justify-center gap-2 py-0.5">
+                <span class="h-4 w-0.5" style="background: var(--secondary);"></span>
+                <span class="text-[9px] font-mono text-gray-500 uppercase tracking-widest">Docker Daemon Swarm</span>
+                <span class="h-4 w-0.5" style="background: var(--secondary);"></span>
+              </div>
+
+              <div class="p-4 rounded-2xl border border-white/5 flex items-center justify-between" style="background: var(--bg-card-subtle);">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    OPS
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">Edge Cloud Deployment</div>
+                    <div class="text-[10px] font-mono text-gray-400">DigitalOcean · Linux · Vercel Edge</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400">99.98% SLA</span>
+              </div>
+
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-400">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                Node: Jazan-01
+              </span>
+              <span style="color: var(--accent);">Status: Nominal</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="border-y border-white/5 py-3.5 overflow-hidden" style="background: var(--bg-card);">
+      <div class="animate-marquee font-mono text-xs text-gray-400">
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> REACT 19</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> LARAVEL 11</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> PYTORCH & CNN</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> YOLOV8 COMPUTER VISION</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> DOCKER CONTAINERS</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> TAILWIND CSS</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> OLLAMA LLM RUNTIMES</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> DIGITALOCEAN & LINUX</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> ROS 2 ROBOTICS</span>
+        <!-- duplicate -->
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> REACT 19</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> LARAVEL 11</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> PYTORCH & CNN</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> YOLOV8 COMPUTER VISION</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> DOCKER CONTAINERS</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> TAILWIND CSS</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> OLLAMA LLM RUNTIMES</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> DIGITALOCEAN & LINUX</span>
+        <span class="mx-6 flex items-center gap-2"><span class="font-bold" style="color: var(--accent);">#</span> ROS 2 ROBOTICS</span>
+      </div>
+    </div>
+
+    <!-- ABOUT / BENTO GRID -->
+    <section id="about" class="max-w-6xl mx-auto px-6 py-24">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-[0.25em] block mb-2 font-semibold" style="color: var(--accent);">01 // Engineering DNA</span>
+          <h2 class="font-display font-black text-4xl sm:text-5xl text-white tracking-tight leading-none">
+            Architected for <span class="text-brand-gradient">production reality.</span>
+          </h2>
+        </div>
+        <p class="text-gray-400 text-sm max-w-md leading-relaxed">
+          Zero-demo philosophy. Every architecture is containerized, instrumented, load-tested, and built for real workloads.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+        
+        <div class="md:col-span-8 pro-card rounded-3xl p-8 spotlight flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-mono uppercase tracking-wider font-semibold" style="color: var(--accent);">Dual Competency Matrix</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-[10px] font-mono text-gray-300 border border-white/10">WEB + DEEP LEARNING</span>
+            </div>
+
+            <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mb-4">
+              Production Web Architecture on one side.<br>Applied Deep Learning on the other.
+            </h3>
+
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+              Computer Science Graduate (Artificial Intelligence Track) from Jazan University. My work lives where these two domains collide: CNN models deployed behind Laravel RESTful services, real-time NLP streams wired into React dashboards, and YOLOv8 computer vision models containerized with Docker and served in production cloud environments.
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 pt-4 border-t border-white/10">
+            <div class="p-4 rounded-2xl border border-white/5" style="background: var(--bg-card-subtle);">
+              <div class="font-mono text-xs font-bold mb-1" style="color: var(--accent);">01. Web Architecture</div>
+              <p class="text-xs text-gray-400 leading-relaxed">Component-driven reactive UIs, secure RESTful microservices, state machines, and high-concurrency database schemas.</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/5" style="background: var(--bg-card-subtle);">
+              <div class="text-emerald-400 font-mono text-xs font-bold mb-1">02. Applied AI & Vision</div>
+              <p class="text-xs text-gray-400 leading-relaxed">End-to-end model training, data preprocessing, transfer learning, quantization, and local inference orchestration via Ollama & PyTorch.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 pro-card rounded-3xl p-8 spotlight flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background: var(--accent-subtle); color: var(--accent); border: 1px solid var(--border-hover);">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"/></svg>
+            </div>
+            <span class="text-xs font-mono text-gray-400 uppercase tracking-wider block mb-1">Academic Degree</span>
+            <h3 class="font-display font-bold text-2xl text-white mb-2">B.Sc. in Computer Science</h3>
+            <div class="inline-block px-2.5 py-1 rounded-lg text-xs font-mono font-semibold mb-4" style="background: var(--accent-subtle); color: var(--accent-light); border: 1px solid var(--border-hover);">
+              Artificial Intelligence Track
+            </div>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              Jazan University, Saudi Arabia. Comprehensive grounding in machine learning, neural networks, algorithms, and distributed computing.
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gray-400">
+            <span>Location: Jazan, KSA</span>
+            <span class="text-emerald-400 font-bold">UTC+3 Active</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 pro-card rounded-3xl p-8 spotlight">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background: var(--accent-subtle); color: var(--accent); border: 1px solid var(--border-hover);">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <span class="text-xs font-mono text-gray-400 uppercase tracking-wider block mb-1">Engineering Tenet</span>
+          <h3 class="font-display font-bold text-xl text-white mb-3">Containerized & Monitored</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            Every application ships in clean Docker containers with automated health checks, minimal attack surfaces, and zero environment drift.
+          </p>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
+            <span class="px-2 py-1 rounded bg-white/5 text-gray-300 border border-white/10">Docker Swarm</span>
+            <span class="px-2 py-1 rounded bg-white/5 text-gray-300 border border-white/10">Linux CLI</span>
+            <span class="px-2 py-1 rounded bg-white/5 text-gray-300 border border-white/10">Nginx Proxy</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-8 pro-card rounded-3xl p-8 spotlight flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">Edge Horizons // R&D</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white mb-3">
+              Hardware-Web Telemetry, Embedded ROS 2 & Distributed Edge AI
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              Bridging digital web architectures with physical edge devices. Exploring autonomous robotics protocols via ROS 2, real-time sensor streams, and edge inference on embedded hardware accelerators.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/10 grid grid-cols-3 gap-4 text-center font-mono">
+            <div class="p-3 rounded-xl border border-white/5" style="background: var(--bg-card-subtle);">
+              <div class="text-emerald-400 font-bold text-sm">ROS 2</div>
+              <div class="text-[10px] text-gray-500 mt-0.5">Robotics Middleware</div>
+            </div>
+            <div class="p-3 rounded-xl border border-white/5" style="background: var(--bg-card-subtle);">
+              <div class="font-bold text-sm" style="color: var(--accent);">Edge AI</div>
+              <div class="text-[10px] text-gray-500 mt-0.5">YOLOv8 & NPU</div>
+            </div>
+            <div class="p-3 rounded-xl border border-white/5" style="background: var(--bg-card-subtle);">
+              <div class="text-indigo-400 font-bold text-sm">Telemetry</div>
+              <div class="text-[10px] text-gray-500 mt-0.5">WebSocket HUD</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECHNICAL ARSENAL -->
+    <section id="skills" class="max-w-6xl mx-auto px-6 py-24">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-mono uppercase tracking-[0.25em] block mb-2 font-semibold" style="color: var(--accent);">02 // Technical Arsenal</span>
+        <h2 class="font-display font-black text-4xl sm:text-5xl text-white tracking-tight">
+          Battle-tested <span class="text-brand-gradient">technology stack.</span>
+        </h2>
+        <p class="text-gray-400 text-sm mt-3">
+          Cross-disciplinary stack refined across web platforms, machine learning pipelines, and DevOps infrastructure.
+        </p>
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-8 font-mono text-xs" id="skillFilterGroup">
+          <button class="skill-tab active px-4 py-2 rounded-xl text-white font-semibold" style="background: var(--accent);" data-filter="all">All Disciplines</button>
+          <button class="skill-tab px-4 py-2 rounded-xl pro-pill text-gray-400 hover:text-white" data-filter="web">Web Architecture</button>
+          <button class="skill-tab px-4 py-2 rounded-xl pro-pill text-gray-400 hover:text-white" data-filter="ai">AI & Deep Learning</button>
+          <button class="skill-tab px-4 py-2 rounded-xl pro-pill text-gray-400 hover:text-white" data-filter="infra">Cloud & DevOps</button>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="skillCardsGrid">
+
+        <div class="skill-card-item pro-card rounded-3xl p-7 spotlight" data-category="web">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-xs" style="background: var(--accent-subtle); color: var(--accent-light); border: 1px solid var(--border-hover);">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2.5 py-1 rounded" style="background: var(--accent-subtle); color: var(--accent-light);">FRONTEND ARCH</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2">React 19 & Modern UI</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            Component architecture, hooks lifecycle, state orchestrations, and high-fidelity micro-interactions with Tailwind CSS & Framer Motion.
+          </p>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[10px] text-gray-300">
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">React</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Vite</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Tailwind</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">TypeScript</span>
+          </div>
+        </div>
+
+        <div class="skill-card-item pro-card rounded-3xl p-7 spotlight" data-category="web">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-xs" style="background: var(--accent-subtle); color: var(--accent-light); border: 1px solid var(--border-hover);">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2.5 py-1 rounded" style="background: var(--accent-subtle); color: var(--accent-light);">BACKEND API</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2">Laravel & REST Services</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            Robust server architectures, Eloquent ORM relationships, token authentication, queuing systems, and high-performance API gateways.
+          </p>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[10px] text-gray-300">
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Laravel 11</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">PHP 8.3</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">MySQL</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">REST APIs</span>
+          </div>
+        </div>
+
+        <div class="skill-card-item pro-card rounded-3xl p-7 spotlight" data-category="ai">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">COMPUTER VISION</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2">YOLOv8 & CNN Models</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            Custom neural network training, object localization, medical imaging classification, bounding box tracking, and real-time video stream processing.
+          </p>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[10px] text-gray-300">
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">YOLOv8</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">PyTorch</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">OpenCV</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">CNNs</span>
+          </div>
+        </div>
+
+        <div class="skill-card-item pro-card rounded-3xl p-7 spotlight" data-category="ai">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">LANGUAGE AI</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2">NLP & Ollama Pipelines</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            Text classification, contextual embeddings, local LLM orchestration via Ollama, streaming inference tokenizers, and prompt engineering.
+          </p>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[10px] text-gray-300">
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Ollama</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Transformers</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">NLTK</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Python</span>
+          </div>
+        </div>
+
+        <div class="skill-card-item pro-card rounded-3xl p-7 spotlight" data-category="infra">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">DEVOPS & CLOUD</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2">Docker & Cloud Systems</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            Multi-stage Dockerfiles, Docker Compose orchestrations, DigitalOcean droplet provisioning, Nginx reverse proxies, and SSL pipelines.
+          </p>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[10px] text-gray-300">
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Docker</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Linux</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">DigitalOcean</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Nginx</span>
+          </div>
+        </div>
+
+        <div class="skill-card-item pro-card rounded-3xl p-7 spotlight" data-category="infra">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-xs" style="background: var(--accent-subtle); color: var(--accent); border: 1px solid var(--border-hover);">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2.5 py-1 rounded" style="background: var(--accent-subtle); color: var(--accent-light);">ROBOTICS / ROS 2</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-2">ROS 2 & Edge Protocols</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            Node communication, publisher-subscriber architectures, hardware-to-cloud telemetry bridges, and embedded systems management.
+          </p>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[10px] text-gray-300">
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">ROS 2</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">C++ / Python</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Telemetry</span>
+            <span class="px-2.5 py-1 rounded border border-white/5" style="background: var(--bg-card-subtle);">Edge IoT</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SELECTED PRODUCTION PROJECTS -->
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-24">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-[0.25em] block mb-2 font-semibold" style="color: var(--accent);">03 // Verified Deployments</span>
+          <h2 class="font-display font-black text-4xl sm:text-5xl text-white tracking-tight leading-none">
+            Live production <span class="text-brand-gradient">systems.</span>
+          </h2>
+        </div>
+        <p class="text-gray-400 text-sm max-w-md leading-relaxed">
+          Production applications hosted on high-availability edge infrastructure. Click any card to launch the live platform.
+        </p>
+      </div>
+
+      <div class="space-y-10">
+
+        <!-- PROJECT 1: KHABEER APP -->
+        <div class="pro-card rounded-3xl p-8 sm:p-10 spotlight">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-6 space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  Production Live
+                </span>
+                <span class="text-xs font-mono text-gray-400">Case Study 01</span>
+              </div>
+
+              <div>
+                <h3 class="font-display font-black text-3xl sm:text-4xl text-white flex items-center gap-3">
+                  <span>Khabeer App</span>
+                  <span class="text-2xl font-bold font-sans" style="color: var(--accent);">خبير</span>
+                </h3>
+                <p class="text-xs font-mono text-gray-400 mt-1">Enterprise AI Advisory & Solution Intelligence Platform</p>
+              </div>
+
+              <p class="text-gray-300 text-sm leading-relaxed">
+                An expert-level AI advisory platform engineered for seamless bilingual user interaction. Features a polished UI/UX, real-time AI streaming integrations, dynamic data flows, and intelligent inference routing to deliver precise, contextual insights.
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 pt-2">
+                <div class="p-3 rounded-xl border border-white/5" style="background: var(--bg-card-subtle);">
+                  <div class="text-[10px] font-mono text-gray-400">INTERFACE</div>
+                  <div class="text-xs font-semibold text-white mt-0.5">React + Vite + Tailwind</div>
+                </div>
+                <div class="p-3 rounded-xl border border-white/5" style="background: var(--bg-card-subtle);">
+                  <div class="text-[10px] font-mono text-gray-400">INTELLIGENCE</div>
+                  <div class="text-xs font-semibold text-white mt-0.5">Real-Time AI Stream Engine</div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">React 19</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">Tailwind CSS</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">Vite</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">AI Integration</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">Vercel Edge</span>
+              </div>
+
+              <div class="pt-2">
+                <a href="https://khabeer-app.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-brand inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-xs font-mono font-semibold">
+                  <span>Launch Live Platform</span>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- UI Frame -->
+            <div class="lg:col-span-6">
+              <a href="https://khabeer-app.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative rounded-2xl overflow-hidden border border-white/10 group shadow-2xl" style="background: var(--bg-card-subtle);">
+                <div class="px-4 py-2.5 border-b border-white/5 flex items-center justify-between" style="background: var(--bg-surface);">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  </div>
+                  <span class="text-[10px] font-mono text-gray-400">https://khabeer-app.vercel.app/</span>
+                  <span class="text-xs group-hover:translate-x-1 transition-transform" style="color: var(--accent);">↗</span>
+                </div>
+
+                <div class="p-6 space-y-4">
+                  <div class="flex items-center justify-between pb-3 border-b border-white/5">
+                    <div class="flex items-center gap-2">
+                      <div class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm" style="background: var(--accent-subtle); color: var(--accent-light); border: 1px solid var(--border-hover);">خ</div>
+                      <span class="text-xs font-bold text-white">Khabeer AI Engine</span>
+                    </div>
+                    <span class="text-[10px] font-mono text-emerald-400">● Streaming Active</span>
+                  </div>
+
+                  <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2.5">
+                    <div class="flex items-center justify-between text-[11px] font-mono">
+                      <span class="text-gray-400">Contextual Advisory Query:</span>
+                      <span style="color: var(--accent-light);">Latency: 18ms</span>
+                    </div>
+                    <div class="h-2 rounded bg-white/5 w-full"></div>
+                    <div class="h-2 rounded bg-white/5 w-4/5"></div>
+                    <div class="h-2 rounded bg-white/5 w-2/3"></div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="p-3 rounded-xl border border-white/5 text-center" style="background: var(--accent-subtle);">
+                      <span class="text-xs font-bold block" style="color: var(--accent-light);">Inference Speed</span>
+                      <span class="text-[9px] font-mono text-gray-400">Real-Time Streams</span>
+                    </div>
+                    <div class="p-3 rounded-xl border border-white/5 text-center bg-emerald-500/10">
+                      <span class="text-xs font-bold text-emerald-400 block">High Precision</span>
+                      <span class="text-[9px] font-mono text-gray-400">Bilingual Support</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROJECT 2: RAKEEZA -->
+        <div class="pro-card rounded-3xl p-8 sm:p-10 spotlight">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-6 space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  Production Live
+                </span>
+                <span class="text-xs font-mono text-gray-400">Case Study 02</span>
+              </div>
+
+              <div>
+                <h3 class="font-display font-black text-3xl sm:text-4xl text-white flex items-center gap-3">
+                  <span>Rakeeza</span>
+                  <span class="text-2xl font-bold font-sans text-emerald-400">ركيزة</span>
+                </h3>
+                <p class="text-xs font-mono text-gray-400 mt-1">SaaS Focus Ecosystem & Productivity Operating System</p>
+              </div>
+
+              <p class="text-gray-300 text-sm leading-relaxed">
+                A premium, production-ready SaaS ecosystem engineered for peak productivity and focus sprints. Showcases a sophisticated dark-slate interface, full-width fluid responsiveness, smart dashboard telemetry, and buttery smooth Framer Motion interactions.
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 pt-2">
+                <div class="p-3 rounded-xl border border-white/5" style="background: var(--bg-card-subtle);">
+                  <div class="text-[10px] font-mono text-gray-400">DESIGN SYSTEM</div>
+                  <div class="text-xs font-semibold text-white mt-0.5">Dark Slate UX & Motion</div>
+                </div>
+                <div class="p-3 rounded-xl border border-white/5" style="background: var(--bg-card-subtle);">
+                  <div class="text-[10px] font-mono text-gray-400">PERFORMANCE</div>
+                  <div class="text-xs font-semibold text-white mt-0.5">Sub-millisecond State</div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">React</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">Tailwind CSS</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">Framer Motion</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">Lucide Icons</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">Vercel</span>
+              </div>
+
+              <div class="pt-2">
+                <a href="https://rakeeza-lemon.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-brand inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-xs font-mono font-semibold">
+                  <span>Launch Live Platform</span>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- UI Frame -->
+            <div class="lg:col-span-6">
+              <a href="https://rakeeza-lemon.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative rounded-2xl overflow-hidden border border-white/10 group shadow-2xl" style="background: var(--bg-card-subtle);">
+                <div class="px-4 py-2.5 border-b border-white/5 flex items-center justify-between" style="background: var(--bg-surface);">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  </div>
+                  <span class="text-[10px] font-mono text-gray-400">https://rakeeza-lemon.vercel.app/</span>
+                  <span class="text-xs text-emerald-400 group-hover:translate-x-1 transition-transform">↗</span>
+                </div>
+
+                <div class="p-6 space-y-4">
+                  <div class="flex items-center justify-between pb-3 border-b border-white/5">
+                    <div class="flex items-center gap-2">
+                      <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-sm">ر</div>
+                      <span class="text-xs font-bold text-white">Rakeeza Sprint OS</span>
+                    </div>
+                    <span class="text-[10px] font-mono text-emerald-400">Productivity 100%</span>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-3">
+                    <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div class="text-[10px] font-mono text-gray-400">Sprint Focus Time</div>
+                      <div class="text-lg font-display font-bold text-white mt-1">04:25:00</div>
+                      <div class="w-full bg-white/10 h-1 rounded-full mt-2 overflow-hidden">
+                        <div class="h-full w-3/4" style="background: var(--accent);"></div>
+                      </div>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div class="text-[10px] font-mono text-gray-400">Deep Work Score</div>
+                      <div class="text-lg font-display font-bold text-emerald-400 mt-1">98.4%</div>
+                      <div class="w-full bg-white/10 h-1 rounded-full mt-2 overflow-hidden">
+                        <div class="bg-emerald-400 h-full w-5/6"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="p-3 rounded-xl border border-white/5 flex items-center justify-between text-xs font-mono" style="background: var(--bg-surface);">
+                    <span class="text-gray-400">Active Sprint: Deep Architecture</span>
+                    <span class="text-emerald-400 font-bold">IN PROGRESS</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROJECT 3: WEB AUTOMATION HUB -->
+        <div class="pro-card rounded-3xl p-8 sm:p-10 spotlight">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-6 space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  Production Live
+                </span>
+                <span class="text-xs font-mono text-gray-400">Case Study 03</span>
+              </div>
+
+              <div>
+                <h3 class="font-display font-black text-3xl sm:text-4xl text-white">Web Automation Hub</h3>
+                <p class="text-xs font-mono text-gray-400 mt-1">High-Throughput Distributed Workflow & Automation Dashboard</p>
+              </div>
+
+              <p class="text-gray-300 text-sm leading-relaxed">
+                A modern, high-performance web interface designed for automated task execution and clean cloud workflow management. Prioritizes raw execution speed, absolute DOM responsiveness, and zero bloated overhead.
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 pt-2">
+                <div class="p-3 rounded-xl border border-white/5" style="background: var(--bg-card-subtle);">
+                  <div class="text-[10px] font-mono text-gray-400">ENGINE</div>
+                  <div class="text-xs font-semibold text-white mt-0.5">High-Speed DOM & Tailwind</div>
+                </div>
+                <div class="p-3 rounded-xl border border-white/5" style="background: var(--bg-card-subtle);">
+                  <div class="text-[10px] font-mono text-gray-400">ORCHESTRATION</div>
+                  <div class="text-xs font-semibold text-white mt-0.5">Cloud Automated Workflows</div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">HTML5</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">Tailwind CSS</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">JavaScript (ES6+)</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">Cloud Automation</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-[11px] font-mono text-gray-300 border border-white/10">Vercel</span>
+              </div>
+
+              <div class="pt-2">
+                <a href="https://web-nine-blond-91.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-brand inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-xs font-mono font-semibold">
+                  <span>Launch Live Platform</span>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- UI Frame -->
+            <div class="lg:col-span-6">
+              <a href="https://web-nine-blond-91.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative rounded-2xl overflow-hidden border border-white/10 group shadow-2xl" style="background: var(--bg-card-subtle);">
+                <div class="px-4 py-2.5 border-b border-white/5 flex items-center justify-between" style="background: var(--bg-surface);">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  </div>
+                  <span class="text-[10px] font-mono text-gray-400">https://web-nine-blond-91.vercel.app/</span>
+                  <span class="text-xs group-hover:translate-x-1 transition-transform" style="color: var(--accent);">↗</span>
+                </div>
+
+                <div class="p-6 space-y-4">
+                  <div class="flex items-center justify-between pb-3 border-b border-white/5">
+                    <span class="text-xs font-bold text-white">Workflow Stream Hub</span>
+                    <span class="text-[10px] font-mono text-emerald-400">Workers: 8/8 Online</span>
+                  </div>
+
+                  <div class="space-y-2 font-mono text-xs">
+                    <div class="p-2.5 rounded-lg border border-white/5 flex items-center justify-between" style="background: var(--bg-surface);">
+                      <span class="text-gray-300">Task: Sync_Cloud_State</span>
+                      <span class="text-emerald-400">SUCCESS</span>
+                    </div>
+                    <div class="p-2.5 rounded-lg border border-white/5 flex items-center justify-between" style="background: var(--bg-surface);">
+                      <span class="text-gray-300">Task: Run_Inference_Batch</span>
+                      <span style="color: var(--accent-light);">EXECUTING</span>
+                    </div>
+                    <div class="p-2.5 rounded-lg border border-white/5 flex items-center justify-between" style="background: var(--bg-surface);">
+                      <span class="text-gray-300">Task: Deploy_Edge_Artifact</span>
+                      <span class="text-gray-500">QUEUED</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DEVELOPER CONSOLE -->
+    <section id="interactive" class="max-w-5xl mx-auto px-6 py-20">
+      
+      <div class="pro-card rounded-3xl overflow-hidden shadow-2xl">
+        
+        <div class="px-6 py-4 border-b border-white/5 flex items-center justify-between" style="background: var(--bg-card-subtle);">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+            <span class="ml-3 text-xs font-mono text-gray-400">ghazwani@jazan-cluster:~$</span>
+          </div>
+          <div class="flex items-center gap-2 text-[11px] font-mono text-gray-400">
+            <span>bash v5.2</span>
+            <span>·</span>
+            <span class="text-emerald-400 font-bold">Online</span>
+          </div>
+        </div>
+
+        <div class="p-6 font-mono text-xs sm:text-sm text-gray-300 min-h-[260px] max-h-[360px] overflow-y-auto" style="background: var(--bg-base);" id="termOutput">
+          <div class="text-gray-500 mb-2">// Khalid Ghazwani Interactive Shell</div>
+          <div class="text-gray-500 mb-4">// Run 'help', 'skills', 'projects', 'yolo', or 'contact'.</div>
+          
+          <div class="space-y-3" id="termHistory">
+            <div>
+              <span style="color: var(--accent);">guest@portfolio:~$</span> <span class="text-white">cat intro.txt</span>
+              <div class="mt-1 text-gray-300 pl-4 border-l leading-relaxed text-xs" style="border-color: var(--border-hover);">
+                Khalid Mohammed Ali Ghazwani — Software Engineer & AI Specialist.<br>
+                Computer Science Graduate (Artificial Intelligence Track) from Jazan University.<br>
+                Core: Full-Stack Web (React, Laravel), Applied Deep Learning (YOLOv8, CNNs), Docker Cloud DevOps.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-6 py-3 border-t border-white/5 flex flex-wrap items-center gap-2 text-xs font-mono" style="background: var(--bg-card-subtle);">
+          <span class="text-gray-500 text-[11px]">Quick Run:</span>
+          <button class="term-pill px-3 py-1 rounded-lg pro-pill hover:bg-white/10 text-gray-300 transition-colors" data-cmd="help">help</button>
+          <button class="term-pill px-3 py-1 rounded-lg pro-pill hover:bg-white/10 text-gray-300 transition-colors" data-cmd="skills">skills --all</button>
+          <button class="term-pill px-3 py-1 rounded-lg pro-pill hover:bg-white/10 text-gray-300 transition-colors" data-cmd="yolo">run yolo --inference</button>
+          <button class="term-pill px-3 py-1 rounded-lg pro-pill hover:bg-white/10 text-gray-300 transition-colors" data-cmd="projects">list projects</button>
+          <button class="term-pill px-3 py-1 rounded-lg pro-pill hover:bg-white/10 text-gray-300 transition-colors" data-cmd="contact">contact --info</button>
+          <button class="term-pill px-3 py-1 rounded-lg pro-pill hover:bg-white/10 text-gray-300 transition-colors" data-cmd="clear">clear</button>
+        </div>
+
+        <form id="termForm" class="px-6 py-3.5 border-t border-white/10 flex items-center gap-3" style="background: var(--bg-card-subtle);">
+          <span class="font-mono font-bold text-sm" style="color: var(--accent);">guest@portfolio:~$</span>
+          <input type="text" id="termInput" autocomplete="off" placeholder="Type a command..." class="flex-1 bg-transparent text-white font-mono text-xs sm:text-sm focus:outline-none placeholder-gray-600">
+          <button type="submit" class="btn-brand px-4 py-1.5 rounded-lg text-xs font-mono font-semibold">Run</button>
+        </form>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-24">
+      
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-5 space-y-7">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-[0.25em] block mb-2 font-semibold" style="color: var(--accent);">05 // Direct Contact</span>
+            <h2 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[0.95]">
+              Let's build<br>
+              <span class="text-brand-gradient">something real.</span>
+            </h2>
+          </div>
+
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Available for full-time software engineering roles, contract web architecture, and applied AI consulting. Typical response time is under 24 hours.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            
+            <a href="mailto:alghzwanyk7@gmail.com" class="pro-card rounded-2xl p-4 flex items-center justify-between group">
+              <div class="flex items-center gap-4">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform" style="background: var(--accent-subtle); color: var(--accent); border: 1px solid var(--border-hover);">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[10px] font-mono text-gray-400 uppercase tracking-wider">Direct Email</div>
+                  <div class="text-sm font-semibold text-white">alghzwanyk7@gmail.com</div>
+                </div>
+              </div>
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform" style="color: var(--accent);">Send ↗</span>
+            </a>
+
+            <a href="https://linkedin.com/in/khaled-ghzwani-25b261331" target="_blank" rel="noopener noreferrer" class="pro-card rounded-2xl p-4 flex items-center justify-between group">
+              <div class="flex items-center gap-4">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform" style="background: var(--accent-subtle); color: var(--accent); border: 1px solid var(--border-hover);">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[10px] font-mono text-gray-400 uppercase tracking-wider">LinkedIn Professional</div>
+                  <div class="text-sm font-semibold text-white">/in/khaled-ghzwani-25b261331</div>
+                </div>
+              </div>
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform" style="color: var(--accent);">Connect ↗</span>
+            </a>
+
+            <a href="https://github.com/alghzwanik9" target="_blank" rel="noopener noreferrer" class="pro-card rounded-2xl p-4 flex items-center justify-between group">
+              <div class="flex items-center gap-4">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform bg-white/10 text-white border border-white/20">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[10px] font-mono text-gray-400 uppercase tracking-wider">GitHub Repos</div>
+                  <div class="text-sm font-semibold text-white">github.com/alghzwanik9</div>
+                </div>
+              </div>
+              <span class="text-xs font-mono text-gray-300 group-hover:translate-x-1 transition-transform">Inspect ↗</span>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="pro-card rounded-3xl p-8 sm:p-10 spotlight">
+            
+            <div class="flex items-center justify-between pb-6 mb-6 border-b border-white/10">
+              <div>
+                <h3 class="font-display font-bold text-xl text-white">Direct Message Router</h3>
+                <p class="text-xs font-mono text-gray-400 mt-0.5">Dispatches directly to Khalid's inbox</p>
+              </div>
+              <span class="text-xs font-mono text-emerald-400 flex items-center gap-1.5 font-bold">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Ready
+              </span>
+            </div>
+
+            <form id="contactForm" class="space-y-4">
+              
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                  <label for="senderName" class="block text-xs font-mono text-gray-400">YOUR NAME <span style="color: var(--accent);">*</span></label>
+                  <input type="text" id="senderName" required placeholder="e.g., Alex Johnson" class="w-full px-4 py-3 rounded-xl border border-white/10 text-sm text-white placeholder-gray-600 focus:outline-none transition-all" style="background: var(--bg-card-subtle); border-color: var(--border-subtle);" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-subtle)'">
+                </div>
+
+                <div class="space-y-1.5">
+                  <label for="senderEmail" class="block text-xs font-mono text-gray-400">YOUR EMAIL <span style="color: var(--accent);">*</span></label>
+                  <input type="email" id="senderEmail" required placeholder="alex@company.com" class="w-full px-4 py-3 rounded-xl border border-white/10 text-sm text-white placeholder-gray-600 focus:outline-none transition-all" style="background: var(--bg-card-subtle); border-color: var(--border-subtle);" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-subtle)'">
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="senderSubject" class="block text-xs font-mono text-gray-400">PROJECT / INQUIRY TYPE</label>
+                <select id="senderSubject" class="w-full px-4 py-3 rounded-xl border border-white/10 text-sm text-gray-200 focus:outline-none transition-all" style="background: var(--bg-card-subtle); border-color: var(--border-subtle);">
+                  <option value="Full-Stack Web Architecture">Full-Stack Web Architecture (React / Laravel)</option>
+                  <option value="AI / Computer Vision Model">Applied AI / Computer Vision Model (YOLOv8 / CNN)</option>
+                  <option value="Engineering Role / Hiring">Full-Time Engineering Role</option>
+                  <option value="Technical Consultation">Technical Collaboration & Consulting</option>
+                </select>
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="senderMsg" class="block text-xs font-mono text-gray-400">MESSAGE DETAILS <span style="color: var(--accent);">*</span></label>
+                <textarea id="senderMsg" required rows="4" placeholder="Describe your project, team goals, or opportunity..." class="w-full px-4 py-3 rounded-xl border border-white/10 text-sm text-white placeholder-gray-600 focus:outline-none transition-all resize-none" style="background: var(--bg-card-subtle); border-color: var(--border-subtle);"></textarea>
+              </div>
+
+              <button type="submit" class="btn-brand w-full py-4 px-6 rounded-xl font-display font-bold text-sm tracking-wide flex items-center justify-center gap-2">
+                <span>Dispatch Message to Khalid</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-10 px-6 font-mono text-xs text-gray-500" style="background: var(--bg-card);">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full" style="background: var(--accent);"></span>
+        <span class="text-gray-400 font-semibold">&copy; 2026 Khalid Mohammed Ali Ghazwani</span>
+      </div>
+      <div>B.Sc. Computer Science (AI Track) · Jazan University, Saudi Arabia</div>
+    </div>
+  </footer>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-[100] flex flex-col gap-3 pointer-events-none"></div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // 1. THEME SWITCHER
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    const htmlEl = document.documentElement;
+
+    function setTheme(themeName) {
+      htmlEl.setAttribute('data-theme', themeName);
+      localStorage.setItem('portfolio-theme', themeName);
+    }
+
+    const savedTheme = localStorage.getItem('portfolio-theme') || 'cobalt';
+    setTheme(savedTheme);
+
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = btn.getAttribute('data-set-theme');
+        setTheme(t);
+      });
+    });
+
+    // 2. DYNAMIC SPOTLIGHT ON CARDS
+    document.querySelectorAll('.spotlight').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // 3. MOBILE MENU
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    mobileBtn.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.add('hidden');
+      });
+    });
+
+    // 4. SKILLS FILTERING
+    const skillTabs = document.querySelectorAll('.skill-tab');
+    const skillItems = document.querySelectorAll('.skill-card-item');
+
+    skillTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        skillTabs.forEach(t => {
+          t.classList.remove('active');
+          t.style.background = 'transparent';
+          t.classList.add('pro-pill', 'text-gray-400');
+        });
+        tab.classList.add('active');
+        tab.style.background = 'var(--accent)';
+        tab.classList.remove('pro-pill', 'text-gray-400');
+
+        const filter = tab.getAttribute('data-filter');
+
+        skillItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+            item.style.opacity = '1';
+          } else {
+            item.style.display = 'none';
+            item.style.opacity = '0';
+          }
+        });
+      });
+    });
+
+    // 5. TOAST HELPER
+    function showToast(title, body) {
+      const toastContainer = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'pro-card px-5 py-4 rounded-2xl text-xs text-white shadow-2xl flex items-start gap-3 pointer-events-auto transform translate-y-4 opacity-0 transition-all duration-300';
+      toast.style.borderColor = 'var(--border-hover)';
+      toast.innerHTML = `
+        <div class="w-6 h-6 rounded-lg flex items-center justify-center font-bold shrink-0 mt-0.5" style="background: var(--accent-subtle); color: var(--accent-light);">✓</div>
+        <div>
+          <div class="font-bold text-white">${title}</div>
+          <div class="text-gray-400 text-[11px] mt-0.5">${body}</div>
+        </div>
+      `;
+      toastContainer.appendChild(toast);
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-4', 'opacity-0');
+      }, 50);
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 400);
+      }, 4000);
+    }
+
+    // 6. CONTACT FORM
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('senderName').value;
+      const subject = document.getElementById('senderSubject').value;
+      showToast(`Transmission Sent!`, `Thank you, ${name}. Your message regarding "${subject}" has been dispatched to Khalid.`);
+      contactForm.reset();
+    });
+
+    // 7. DEVELOPER CONSOLE INTERACTION
+    const termHistory = document.getElementById('termHistory');
+    const termInput = document.getElementById('termInput');
+    const termForm = document.getElementById('termForm');
+    const termOutput = document.getElementById('termOutput');
+
+    const TERMINAL_COMMANDS = {
+      'help': () => `
+Available Commands:
+  • <span style="color: var(--accent-light);" class="font-bold">skills</span>      : Output complete engineering competencies
+  • <span style="color: var(--accent-light);" class="font-bold">projects</span>    : List verified production deployments & live URLs
+  • <span style="color: var(--accent-light);" class="font-bold">yolo</span>        : Execute simulated YOLOv8 real-time inference
+  • <span style="color: var(--accent-light);" class="font-bold">contact</span>     : Display Khalid's communication channels
+  • <span style="color: var(--accent-light);" class="font-bold">clear</span>       : Flush the terminal buffer
+      `,
+      'skills': () => `
+[ENGINEERING MATRIX]
+  ▸ Frontend Architecture: React 19, Vite, Tailwind CSS, TypeScript, Framer Motion
+  ▸ Backend Systems:       Laravel 11, PHP 8.3, RESTful APIs, MySQL, Redis
+  ▸ Artificial Intelligence: PyTorch, YOLOv8 (Computer Vision), CNNs, Ollama LLM, NLP
+  ▸ DevOps & Infrastructure: Docker Containers, Linux, DigitalOcean, Nginx, Vercel Edge
+  ▸ Embedded & Robotics:   ROS 2, Hardware-to-Cloud WebSockets, Telemetry Streams
+      `,
+      'projects': () => `
+[VERIFIED PRODUCTION RELEASES]
+  1. Khabeer App (خبير)        -> https://khabeer-app.vercel.app/  [Enterprise AI Advisory Platform]
+  2. Rakeeza (ركيزة)           -> https://rakeeza-lemon.vercel.app/ [SaaS Productivity Sprint OS]
+  3. Web Automation Hub       -> https://web-nine-blond-91.vercel.app/ [Cloud Workflow Orchestrator]
+      `,
+      'yolo': () => `
+<span class="text-emerald-400 font-bold">[YOLOv8 Inference Session Started]</span>
+  → Target device: <span style="color: var(--accent-light);">CUDA Acceleration Engine</span>
+  → Tensor: (1, 3, 640, 640)...
+  [Detection Results]:
+    [1] Bounding Box: [x:120, y:45, w:220, h:130] | Class: 'Autonomous_Node' | Conf: <span class="text-emerald-400">99.4%</span>
+  → Latency: <span style="color: var(--accent);" class="font-bold">14.1ms</span> / FPS: <span style="color: var(--accent-light);" class="font-bold">72.4</span>
+  Status: Pipeline Active & Healthy.
+      `,
+      'contact': () => `
+[CONTACT CHANNELS]
+  • Email:    alghzwanyk7@gmail.com
+  • LinkedIn: https://linkedin.com/in/khaled-ghzwani-25b261331
+  • GitHub:   https://github.com/alghzwanik9
+  • Location: Jazan, Saudi Arabia
+      `
+    };
+
+    function execTerm(cmd) {
+      const clean = cmd.trim().toLowerCase();
+      if (!clean) return;
+
+      if (clean === 'clear') {
+        termHistory.innerHTML = '';
+        return;
+      }
+
+      let res = '';
+      if (TERMINAL_COMMANDS[clean]) {
+        res = TERMINAL_COMMANDS[clean]();
+      } else if (clean.startsWith('skill')) {
+        res = TERMINAL_COMMANDS['skills']();
+      } else if (clean.startsWith('proj')) {
+        res = TERMINAL_COMMANDS['projects']();
+      } else {
+        res = `<span class="text-red-400">Command not recognized: '${clean}'. Type '<span style="color: var(--accent-light);">help</span>' for available actions.</span>`;
+      }
+
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <div class="mt-3">
+          <span style="color: var(--accent);">guest@portfolio:~$</span> <span class="text-white">${clean}</span>
+          <div class="mt-1 text-gray-300 pl-4 border-l leading-relaxed font-mono text-xs" style="border-color: var(--border-hover);">${res}</div>
+        </div>
+      `;
+      termHistory.appendChild(div);
+      termOutput.scrollTop = termOutput.scrollHeight;
+    }
+
+    termForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      execTerm(termInput.value);
+      termInput.value = '';
+    });
+
+    document.querySelectorAll('.term-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        execTerm(pill.getAttribute('data-cmd'));
+      });
+    });
+  </script>
+</body>
+</html>
